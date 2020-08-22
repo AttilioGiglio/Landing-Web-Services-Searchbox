@@ -1,0 +1,18 @@
+$cardSize: 250px;
+$textAlign: center;
+$colorTextCard: white;
+
+.card{
+        img {
+            width: $cardSize;
+            height: $cardSize;
+        }
+        h2 {
+            color: $colorTextCard;
+            text-align: $textAlign;
+        }
+        p {
+            color: $colorTextCard;
+            text-align: $textAlign;
+        }
+}
