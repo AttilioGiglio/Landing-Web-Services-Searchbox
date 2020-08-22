@@ -15,7 +15,7 @@ const CardList = ({robots}) => {
 })
     
     return (
-        <div className='container'>
+        <div className='box'>
             {cardComponent}
         </div>
     )

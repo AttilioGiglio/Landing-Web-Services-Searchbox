@@ -1,4 +1,4 @@
-export const Robots = [
+export const robots = [
 {
     id:1,
     name:'Leanne Graham',
@@ -35,5 +35,28 @@ export const Robots = [
     username:'Max',
     email:'Sincere@april.biz'
 },
-
+{
+    id:7,
+    name:'Samuel Graham',
+    username:'Max',
+    email:'Sincere@april.biz'
+},
+{
+    id:8,
+    name:'Jose Graham',
+    username:'J',
+    email:'Sincere@april.biz'
+},
+{
+    id:9,
+    name:'Jorsh Graham',
+    username:'Jos',
+    email:'Sincere@april.biz'
+},
+{
+    id:10,
+    name:'Leslie Graham',
+    username:'Les',
+    email:'Sincere@april.biz'
+},
 ]
