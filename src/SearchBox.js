@@ -4,7 +4,7 @@ const SearchBox = () => {
 
     return(
         <div className='container'>
-            <input />
+            <p>Hola</p>
         </div>
     );
 }
