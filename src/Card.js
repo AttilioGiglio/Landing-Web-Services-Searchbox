@@ -3,7 +3,7 @@ import './Card.scss'
 
 const Card = (props) => {
     
-    const {id,name,email} = props;
+    const {id,name,email,website} = props;
 
     return (
 
@@ -11,6 +11,7 @@ const Card = (props) => {
             <img src={`https://robohash.org/${id}?set=set5`} alt="robots" />
             <h2 className="card-title m-2">{name}</h2>
             <p className="card-text f4 mb-2">{email}</p>
+            <p className="card-text f4 mb-2">{website}</p>
         </div>
         
         // <div className='container'>
