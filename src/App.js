@@ -1,8 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setSearchField } from './Actions.js';
 import CardList from './CardList.js';
 import SearchBox from './SearchBox.js';
 import { Scroll } from './Scroll.js';
-import ErrorBoundry from './ErrorBoundry.js'
+import ErrorBoundry from './ErrorBoundry.js';
+
+
+
+const mapStateToProps = (state) => {
+    return {
+        searchField: state.searchField,
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return (
+        {
+            onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+        });
+}
 
 class App extends React.Component {
     constructor() {
@@ -10,20 +27,22 @@ class App extends React.Component {
         this.state = {
             // robots: robots,
             robots: [],
-            searchField: ''
+            // searchField: ''
         };
     }
 
     componentDidMount() {
+        // console.log(this.props.store.getState())
         fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(users => this.setState({ robots: users }))
     };
 
-    onSearchChange = (event) => {
-        this.setState({ searchField: event.target.value });
-    }
+    // onSearchChange = (event) => {
+    //     this.setState({ searchField: event.target.value });
+    // }
 
     render() {
-        const { robots, searchField, } = this.state;
+        const { robots, /*searchField*/ } = this.state;
+        const {searchField, onSearchChange} = this.props;
         const filteredRobots = robots.filter(robots => {
             return robots.name.toLowerCase().includes(searchField.toLowerCase());
         });
@@ -32,14 +51,15 @@ class App extends React.Component {
             (
                 <div className='box ph5 mb4 tc' >
                     <h1 className='ma2' style={{ fontSize: '80px' }}>RoboFriends</h1>
-                    <SearchBox searchChange={this.onSearchChange} />
+                    <SearchBox searchChange={onSearchChange} />
                     <Scroll>
                         <ErrorBoundry>
-                        <CardList robots={filteredRobots} />
+                            <CardList robots={filteredRobots} />
                         </ErrorBoundry>
                     </Scroll>
                 </div>
             );
     }
 }
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default App;
